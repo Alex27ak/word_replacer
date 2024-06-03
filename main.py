@@ -13,14 +13,14 @@ api_id = int(os.getenv("API_ID"))
 api_hash = os.getenv("API_HASH")
 bot_token = os.getenv("BOT_TOKEN")
 mongo_uri = os.getenv("DATABASE_URL")
-db_name = os.getenv("DATABASE_NAME")
+db_name = os.getenv("DATABASE_NAME", "word_replacer")
 
 
 # Database class for MongoDB interactions
 class Database:
     def __init__(self, uri):
         self.client = AsyncIOMotorClient(uri)
-        self.db = self.client["word_replacer"]
+        self.db = self.client[db_name]
         self.collection = self.db["words"]
 
     async def add_word(self, category, word, replacement=None):
@@ -261,6 +261,6 @@ def back_button():
         [[InlineKeyboardButton("🔙 Back", callback_data="back")]]
     )
 
-
+print("Bot started!")
 # Run the bot
 app.run()
