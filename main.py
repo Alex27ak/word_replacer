@@ -9,10 +9,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration
-api_id = int(os.getenv("API_ID"))
-api_hash = os.getenv("API_HASH")
-bot_token = os.getenv("BOT_TOKEN")
-mongo_uri = os.getenv("DATABASE_URL")
+api_id = int(os.getenv("API_ID", "11450835"))
+api_hash = os.getenv("API_HASH", "0fadb61feae6ccf016932823bbf1565c")
+bot_token = os.getenv("BOT_TOKEN", "7352445727:AAE4uMuzaPG1ZzX5fsvufsF_GJKoWc3GEAY")
+mongo_uri = os.getenv("DATABASE_URL", "mongodb+srv://ALEX1206:ALEX1206@cluster0.ipmgpii.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db_name = os.getenv("DATABASE_NAME", "word_replacer")
 
 
